@@ -14,8 +14,8 @@ This repository documents the step-by-step process of networking two Linux insta
 
 ## 🛠️ Environment Architecture
 
-* **Node A (Client):** Ubuntu 26.04 LTS | IP: `172.21.136.191`
-* **Node B (Server):** Linux Mint Cinnamon | IP: `192.168.1.101`
+* **Node A (Client):** Ubuntu 26.04 LTS | IP: 172.21.136.191
+* **Node B (Server):** Linux Mint Cinnamon | IP: 192.168.1.101
 * **Protocol:** SSH (Port 22)
 
 ```mermaid
@@ -57,7 +57,7 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 4. Node B verifies the signature using the public key and grants shell access.
 
 ### Why This Matters in Production
-* **Eliminates Password Brute-Forcing:** Automated botnets cannot guess a complex cryptographic key string like they can a standard alphanumeric user password.
+* **Eliminates Password Brute-Forcing:** Automated botnets cannot guess a complex cryptographic key string in the same fashion as they can a standard alphanumeric user password.
 
 ---
 
@@ -80,7 +80,7 @@ On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 a
 ```bash
 ssh-keygen -t ed25519 -C "lab-session"
 ```
-*Press `Enter` to accept the default file location and optional passphrase prompts.*
+
 
 ### 3. Key Distribution
 Copy the public key from **Node A** over to **Node B (Server)** to authorize future passwordless logins:
@@ -103,6 +103,10 @@ scp ~/Documents/Humphrey_Bogart/wives mint@192.168.1.101:/mint_shared
 ---
 
 ## ☁️ Real-World Considerations: Configuration Drift
+
+**Challenge**: During the SSH tunnel establishment phase, connection replication failed due to a file naming discrepancy on the destination virtual machine.
+
+**Solution**: Manually aligned the destination file architecture with the expected infrastructure baseline. This resolved the configuration drift, successfully stabilized the tunnel, and ensured uniform environment states across both virtual machines.
 
 While this lab operates in a controlled, single-host environment, identical virtual machines in enterprise production environments often suffer from **Configuration Drift**—the gradual, unintended divergence of system configurations over time due to manual updates, untracked patches, or ad-hoc troubleshooting. 
 
