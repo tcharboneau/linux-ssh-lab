@@ -6,6 +6,12 @@ A networking and security lab showcasing automated/manual SSH setup, public key 
 ## 📌 Project Overview
 This repository documents the step-by-step process of networking two Linux instances together, establishing a Secure Shell (SSH) connection, and verifying data integrity by securely transferring files between nodes.
 
+## 🛠️ Tech Stack & Environment
+* **OS:** Ubuntu Server 26.04 LTS | Linux Mint Cinnamon
+* **Hypervisor:** VirtualBox | Hyper-V Architecture (WSL2)
+* **Protocols:** SSH (Secure Shell), SFTP (Secure File Transfer Protocol)
+* **Crypto:**  ED25519 
+
 ## 🛠️ Environment Architecture
 
 * **Node A (Client):** Ubuntu 26.04 LTS | IP: `172.21.136.191`
