@@ -75,7 +75,7 @@ ping -c 4 192.168.1.101
 
 The ping from WSL2(client) to Virtualbox(Server) succeeded. The ping from Node B (Server) to Node A (Client) failed.
 
-In this lab environment, asymmetric network reachability—where the WSL2 instance can ping the VirtualBox VM, but the VirtualBox VM cannot ping WSL2—is a deterministic architectural behavior rather than a system failure. This condition stems from the underlying virtualized network topologies, network address translation (NAT) boundaries, and host-level security policies.
+Asymmetric network reachability—where the WSL2 instance can ping the VirtualBox VM, but the VirtualBox VM cannot ping WSL2—is an expected behavoior.  This condition stems from the underlying virtualized network topologies, network address translation (NAT) boundaries, and host-level security policies.
 +-----------------------------------------------------------------------------------+
 
 | Windows 11 Host                                                                   |
@@ -97,7 +97,7 @@ In this lab environment, asymmetric network reachability—where the WSL2 instan
 1. Layer 3 Isolation and Private Address Space (NAT Topology)
 •	WSL2 Architecture: Microsoft WSL2 operates within a lightweight utility VM managed by Hyper-V. By default, it is bound to an internal, non-bridged virtual switch (vEthernet (WSL)). The host OS provisions a dedicated private subnet for this switch and acts as a NAT Gateway.
 •	VirtualBox Architecture: Depending on configuration, VirtualBox guests typically run on their own isolated network interfaces (either default NAT, Host-Only, or Bridged).
-•	The Routing Conflict: Because both hypervisors manage separate, isolated virtual subnets, they lack explicit routing table entries to directly map next-hop addresses to one another. While WSL2 can leverage the host’s IP forwarding capabilities to reach external interfaces (including the VirtualBox adapter), the reverse path lacks a valid route without manual host-level 
+•	The Routing Conflict: Because both hypervisors manage separate, isolated virtual subnets, they lack explicit routing table entries to directly map next-hop addresses to one another. While WSL2 can leverage the host’s IP forwarding capabilities to reach external interfaces (including the VirtualBox adapter), the reverse path lacks a valid route without manual host-level routing table modifications or port forwarding.
 
 
 ```
