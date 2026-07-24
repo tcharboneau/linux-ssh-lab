@@ -64,7 +64,7 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 ## 🚀 Lab Steps
 
 ### 1. Network Configuration
-Verify bi-directional network connectivity between both nodes using the `ping` utility:
+Verify bi-directional network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. 
 
 ```bash
 # From Node A (Client)
