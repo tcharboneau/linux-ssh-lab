@@ -67,8 +67,6 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 Verify bi-directional network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. 
 
 
-```
-
 ### 2. Key Generation
 On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 algorithm:
 
