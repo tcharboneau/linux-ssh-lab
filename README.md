@@ -65,7 +65,7 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 ## 🚀 Lab Steps
 
 ### 1. Network Configuration
-Verify network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. This is expected.[2](2__ASCII_PING_DENY) [3](3__PING_DENY_REASONS)
+Verify network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. This is expected.[2](2__ASCII_PING_DENY), [3](3__PING_DENY_REASONS)
 
 ### 2. Firewall Configuration
 UFW Firewall Policy Engineering :
