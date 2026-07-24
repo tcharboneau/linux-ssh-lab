@@ -72,6 +72,34 @@ ping -c 4 172.21.136.191
 
 # From Node B (Server)
 ping -c 4 192.168.1.101
+
+The ping from WSL2(client) to Virtualbox(Server) succeeded. The ping from Node B (Server) to Node A (Client) failed.
+
+In this lab environment, asymmetric network reachability—where the WSL2 instance can ping the VirtualBox VM, but the VirtualBox VM cannot ping WSL2—is a deterministic architectural behavior rather than a system failure. This condition stems from the underlying virtualized network topologies, network address translation (NAT) boundaries, and host-level security policies.
++-----------------------------------------------------------------------------------+
+
+| Windows 11 Host                                                                   |
+|                                                                                   |
+|  +---------------------------+                     +---------------------------+  |
+|  |     WSL2 Instance         |                     |   VirtualBox Guest VM     |  |
+|  |   (Hyper-V Isolated)      |                     |    (Linux Mint Cinnamon)  |  |
+|  +-------------+-------------+                     +-------------+-------------+  |
+|                | [10.x.x.x]                                      | [10.x.x.x or DHCP]
+|                v                                                 v                |
+|  +---------------------------+                     +---------------------------+  |
+|  | vEthernet (WSL) Switch    |                     | VirtualBox Host-Only/NAT  |  |
+|  | (Internal NAT Boundary)   |                     |     Network Adapter       |  |
+|  +-------------+-------------+                     +-------------+-------------+  |
+|                |                                                 |                |
+|                +-----------------< [ICMP Echo] <-----------------+                |
+|                |        (Blocked by Windows Host Firewall)       |                |
++-----------------------------------------------------------------------------------+
+1. Layer 3 Isolation and Private Address Space (NAT Topology)
+•	WSL2 Architecture: Microsoft WSL2 operates within a lightweight utility VM managed by Hyper-V. By default, it is bound to an internal, non-bridged virtual switch (vEthernet (WSL)). The host OS provisions a dedicated private subnet for this switch and acts as a NAT Gateway.
+•	VirtualBox Architecture: Depending on configuration, VirtualBox guests typically run on their own isolated network interfaces (either default NAT, Host-Only, or Bridged).
+•	The Routing Conflict: Because both hypervisors manage separate, isolated virtual subnets, they lack explicit routing table entries to directly map next-hop addresses to one another. While WSL2 can leverage the host’s IP forwarding capabilities to reach external interfaces (including the VirtualBox adapter), the reverse path lacks a valid route without manual host-level 
+
+
 ```
 
 ### 2. Key Generation
