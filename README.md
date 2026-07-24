@@ -17,7 +17,7 @@ This repository documents the step-by-step process of networking two Linux insta
 * **Node A (Client):** Ubuntu 26.04 LTS | IP: 172.21.136.191
 * **Node B (Server):** Linux Mint Cinnamon | IP: 192.168.1.101
 * **Protocol:** SSH (Port 22)
-* **[ASCII CHART](1__ASCII_SSHKey.txt) 
+* [ASCII CHART](1__ASCII_SSHKey.txt) 
 
 ```mermaid
 graph TD
