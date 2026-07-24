@@ -64,10 +64,15 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 ## 🚀 Lab Steps
 
 ### 1. Network Configuration
-Verify bi-directional network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. 
+Verify network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. This is expected.
+
+### 2. Firewall Configuration
+UFW Firewall Policy Engineering :
+Implemented a Default-Deny inbound and outbound traffic posture.
+Created explicit whitelist rules to permit bidirectional TCP port 22 (SSH) traffic only between the designated VM IP addresses.
 
 
-### 2. Key Generation
+### 3. Key Generation
 On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 algorithm:
 
 ```bash
@@ -75,14 +80,14 @@ ssh-keygen -t ed25519 -C "lab-session"
 ```
 
 
-### 3. Key Distribution
+### 4. Key Distribution
 Copy the public key from **Node A** over to **Node B (Server)** to authorize future passwordless logins:
 
 ```bash
 ssh-copy-id mint@192.168.1.101
 ```
 
-### 4. Verification & File Transfer
+### 5. Verification & File Transfer
 Test the passwordless connection by logging in remotely, and then verify data movement by transferring a test file securely via Secure Copy Protocol (SCP).
 
 ```bash
