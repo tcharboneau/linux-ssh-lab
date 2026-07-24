@@ -1,0 +1,11 @@
+1. Layer 3 Isolation and Private Address Space (NAT Topology)
+•	WSL2 Architecture: Microsoft WSL2 operates within a lightweight utility VM managed by Hyper-V. By default, it is bound to an internal, non-bridged virtual switch (vEthernet (WSL)). The host OS provisions a dedicated private subnet for this switch and acts as a NAT Gateway.
+•	VirtualBox Architecture: Depending on configuration, VirtualBox guests typically run on their own isolated network interfaces (either default NAT, Host-Only, or Bridged).
+•	The Routing Conflict: Because both hypervisors manage separate, isolated virtual subnets, they lack explicit routing table entries to directly map next-hop addresses to one another. While WSL2 can leverage the host’s IP forwarding capabilities to reach external interfaces (including the VirtualBox adapter), the reverse path lacks a valid route without manual host-level routing configuration.
+2. Host-Level Stateful Firewalls & ICMP Filtering
+•	Ingress Packet Dropping: The Windows Host Firewall treats incoming traffic originating from non-local subnets (such as the VirtualBox adapter) destined for internal Hyper-V interfaces with strict ingress security policies.
+•	Protocol Filtering: By default, Windows Defender Firewall drops inbound ICMPv4 Echo Requests (Type 8) from external zones. Even if the VirtualBox VM successfully routes a packet to the Windows host interface, the host drops the packet before it can be switched into the vEthernet (WSL) network fabric.
+3. Outbound vs. Inbound State Translation
+•	Stateful Outbound Success: When WSL2 initiates a ping toward the VirtualBox VM, the traffic leaves the Hyper-V switch, undergoes source network address translation (SNAT) via the host, and arrives at VirtualBox with the host's adapter IP as the source.
+•	Stateless Inbound Failure: When VirtualBox attempts to initiate the connection inward, it targets the WSL2 internal IP directly (which is unroutable outside the host) or targets the host IP, which lacks an active listener or port-forwarding rule to map the traffic to the internal WSL2 instance.
+________________________________________
