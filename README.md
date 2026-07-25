@@ -29,7 +29,7 @@ graph TD
 
     subgraph Host ["Physical Host (Hypervisor: e.g., VirtualBox / KVM / VMware)"]
         subgraph Switch ["Virtual Network Switch (Host-Only / NAT Network)"]
-            Net[IP Subnet: 192.168.56.0/24]
+            Net[IP Subnet: 192.168.1.101/24]
         end
 
         VM1["Virtual Machine 1 (SSH Client)<br/>Host Name: WSL-Ubuntu-26.04<br/>IP: 172.21.136.191<br/>SSH Key: ~/.ssh/id_ed25519"]
@@ -89,7 +89,7 @@ ssh-copy-id mint@192.168.1.101
 ```
 
 ### 5. Verification & File Transfer
-Test the passwordless connection by logging in remotely, and then verify data movement by transferring a test file securely via Secure Copy Protocol (SCP).[13](13_HUMPHREY_BOGART.png), [14](14_HUMPHREY_BOGART_VMA.png), [15](15_HUMPHREY_BOGART_VMB.png), 
+Test the passwordless connection by logging in remotely, and then verify data movement by transferring a test file securely via Secure Copy Protocol (SCP).[13](13_HUMPHREY_BOGART.png), [14](14_HUMPHREY_BOGART_VMA.png), [15](15_HUMPHREY_BOGART_VMB.png), [16](16_HUMPHREY_BOGART_SCP.png)
 
 ```bash
 # Test the remote SSH login session
