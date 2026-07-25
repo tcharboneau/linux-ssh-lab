@@ -74,7 +74,7 @@ Created explicit whitelist rules to permit bidirectional TCP port  2222 traffic 
   
 
 ### 3. Key Generation
-On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 algorithm:
+On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 algorithm:[9](9__KEYGEN_IMAGE.png)
 
 ```bash
 ssh-keygen -t ed25519 -C "lab-session"
