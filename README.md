@@ -70,8 +70,8 @@ Verify network connectivity between both nodes using the `ping` utility. The pin
 ### 2. Firewall Configuration 
 UFW Firewall Policy Engineering :
 Implemented a Default-Deny inbound and outbound traffic posture.[6]( 6__FIREWALL.png)  
-Created explicit whitelist rules to permit bidirectional TCP port  2222 traffic  between the designated VM IP addresses.[7](7__SSHD_CONFIG.png)  
-
+Created explicit whitelist rules to permit bidirectional TCP port  2222 traffic  between the designated VM IP addresses.[7](7__SSHD_CONFIG.png), [8](8__FIREWALL_WHITELIST.png)
+  
 
 ### 3. Key Generation
 On **Node A (Client)**, generate a secure, modern SSH key pair via the ED25519 algorithm:
