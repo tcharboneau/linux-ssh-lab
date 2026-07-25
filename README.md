@@ -82,7 +82,7 @@ ssh-keygen -t ed25519 -C "lab-session"
 
 
 ### 4. Key Distribution
-Copy the public key from **Node A** over to **Node B (Server)** to authorize future passwordless logins:
+Copy the public key from **Node A** over to **Node B (Server)** to authorize future passwordless logins [12](12_KEYGEN_ACCEPT.png):
 
 ```bash
 ssh-copy-id mint@192.168.1.101
