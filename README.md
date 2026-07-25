@@ -67,7 +67,7 @@ This lab demonstrates **Asymmetric Cryptography** (Public/Private Key pairs). In
 ### 1. Network Configuration
 Verify network connectivity between both nodes using the `ping` utility. The ping utility worked one direction, but not the other. This is expected.[2](2__ASCII_PING_DENY), [3](3__PING_DENY_REASONS), [4](4__PING_SUCCESS_WSL2_TO_VM.png), [5](5__PING_FAILURE_VM_TO__WSL2.png) 
 
-### 2. Firewall Configuration
+### 2. Firewall Configuration 
 UFW Firewall Policy Engineering :
 Implemented a Default-Deny inbound and outbound traffic posture. 
 Created explicit whitelist rules to permit bidirectional TCP port 22 (SSH) traffic only between the designated VM IP addresses.
