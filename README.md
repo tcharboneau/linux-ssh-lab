@@ -69,7 +69,7 @@ Verify network connectivity between both nodes using the `ping` utility. The pin
 
 ### 2. Firewall Configuration 
 UFW Firewall Policy Engineering :
-Implemented a Default-Deny inbound and outbound traffic posture. 
+Implemented a Default-Deny inbound and outbound traffic posture.[6]( 6__FIREWALL.png)  
 Created explicit whitelist rules to permit bidirectional TCP port 22 (SSH) traffic only between the designated VM IP addresses.
 
 
