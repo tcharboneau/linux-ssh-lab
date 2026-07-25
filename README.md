@@ -89,7 +89,7 @@ ssh-copy-id mint@192.168.1.101
 ```
 
 ### 5. Verification & File Transfer
-Test the passwordless connection by logging in remotely, and then verify data movement by transferring a test file securely via Secure Copy Protocol (SCP).
+Test the passwordless connection by logging in remotely, and then verify data movement by transferring a test file securely via Secure Copy Protocol (SCP).[13](13_HUMPHREY_BOGART.png)
 
 ```bash
 # Test the remote SSH login session
