@@ -95,7 +95,7 @@ Test the passwordless connection by logging in remotely, and then verify data mo
 # Test the remote SSH login session
 ssh mint@192.168.1.101
 
-# Transfer a sample validation data file from Client to Server using SCP
+# Transfer a sample validation data file from Client to Server.
 scp ~/Documents/Humphrey_Bogart/wives mint@192.168.1.101:/mint_shared
 ```
 
