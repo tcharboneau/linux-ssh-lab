@@ -29,7 +29,7 @@ graph TD
 
     subgraph Host ["Physical Host (Hypervisor: e.g., VirtualBox / KVM / VMware)"]
         subgraph Switch ["Virtual Network Switch (Host-Only / NAT Network)"]
-            Net[IP Subnet: 192.168.1.101/24]
+            Net[IP Subnet: 192.168.1.0/24]
         end
 
         VM1["Virtual Machine 1 (SSH Client)<br/>Host Name: WSL-Ubuntu-26.04<br/>IP: 172.21.136.191<br/>SSH Key: ~/.ssh/id_ed25519"]
